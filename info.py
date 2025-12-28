@@ -88,10 +88,10 @@ PUBLIC_FILE_CHANNEL = environ.get('PUBLIC_FILE_CHANNEL', '') # Public Channel Us
 
 
 # Links
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/alexanderthegreatxxx')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/alexanderthegreatxxx')
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'alexanderthegreatxxx') # Support Chat Link Without https:// or @
-OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/alexandeethegreatxxx')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/alexanderthegreatxx')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/alexanderthegreatxx')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'alexanderthegreatxx') # Support Chat Link Without https:// or @
+OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/alexandeethegreatxx')
 
 # True Or False
 AI_SPELL_CHECK = bool(environ.get('AI_SPELL_CHECK', True))
@@ -196,6 +196,7 @@ else:
 # Don't Remove Credit @VJ_Bots
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
+
 
 
 
