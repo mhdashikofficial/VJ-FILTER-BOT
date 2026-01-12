@@ -558,33 +558,20 @@ async def start(client, message):
             pass
         return await message.reply('No such file exist.')
     files = files_
-        title = files["file_name"]
-        if title:
-            title = title.replace("@VJ_Bots ", "", 1)  # Strips the prefix dynamically
-        size=get_size(files["file_size"])
-        f_caption=files["caption"]
-        if CUSTOM_FILE_CAPTION:
-            try:
-                f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
-            except:
-                f_caption=f_caption
-        if f_caption is None:
-            f_caption = f"@alexynox {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), title.split()))}"  # Use cleaned title
-        if not await db.has_premium_access(message.from_user.id):
-            # ... verification logic (unchanged) ...
-        if STREAM_MODE == True:
-            button = [[InlineKeyboardButton('sᴛʀᴇᴀᴍ ᴀɴᴅ ᴅᴏᴡɴʟᴏᴀᴅ', callback_data=f'generate_stream_link:{file_id}')]]
-            reply_markup=InlineKeyboardMarkup(button)
-        else:
-            reply_markup = None
-        msg = await client.send_cached_media(
-            chat_id=message.from_user.id,
-            file_id=file_id,
-            caption=f_caption,
-            protect_content=True if pre == 'filep' else False,
-            reply_markup=reply_markup
-        )
-            return
+    title = files["file_name"]
+    if title:
+        title = title.replace("@VJ_Bots ", "", 1)  # Strips the prefix dynamically
+    size=get_size(files["file_size"])
+    f_caption=files["caption"]
+    if CUSTOM_FILE_CAPTION:
+        try:
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+        except:
+            f_caption=f_caption
+    if f_caption is None:
+        f_caption = f"@alexynox {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), title.split()))}"  # Use cleaned title
+    if not await db.has_premium_access(message.from_user.id):
+        # ... verification logic (unchanged) ...
     if STREAM_MODE == True:
         button = [[InlineKeyboardButton('sᴛʀᴇᴀᴍ ᴀɴᴅ ᴅᴏᴡɴʟᴏᴀᴅ', callback_data=f'generate_stream_link:{file_id}')]]
         reply_markup=InlineKeyboardMarkup(button)
