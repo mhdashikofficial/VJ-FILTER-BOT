@@ -1345,6 +1345,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             return await query.answer('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
         files = files_
         title = files["file_name"]
+        if title:
+            title = title.replace("@VJ_Bots ", "", 1)  # Strips the prefix dynamically
         size = get_size(files["file_size"])
         f_caption = files["caption"]
         settings = await get_settings(query.message.chat.id)
@@ -1357,8 +1359,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.exception(e)
             f_caption = f_caption
         if f_caption is None:
-            f_caption = f"{files['file_name']}"
-
+            f_caption = f"{title}"  # Use cleaned title here too
+    
         try:
             if settings['is_shortlink'] and not await db.has_premium_access(query.from_user.id):
                 if clicked == typed:
@@ -3286,5 +3288,6 @@ async def global_filters(client, message, text=False):
                 break
     else:
         return False
+
 
 
